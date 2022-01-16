@@ -13,7 +13,6 @@ Author = Rodrigo Lima
 *Credits = Python for absolute beginners 2019 - TIC TAC TOE project (where
 I learned how to do this project.)
 """
-
 # --------- Global Variables -----------
 
 # 1- The game is played on a grid that is three squares by three squares.
@@ -29,7 +28,6 @@ winner = None
 
 # 2 - Player one uses x's. Player two uses o's.
 current_player = "X"
-
 
 # ------------- Functions ---------------
 
@@ -59,7 +57,6 @@ def main():
   elif winner == None:
     print("draw.")
 
-
 # Display the game board to the screen
 def display_board():
   print("\n")
@@ -67,7 +64,6 @@ def display_board():
   print(board[3] + " | " + board[4] + " | " + board[5] + "     4 | 5 | 6")
   print(board[6] + " | " + board[7] + " | " + board[8] + "     7 | 8 | 9")
   print("\n")
-
 
 # Handle a turn for an arbitrary player
 def turn(player):
@@ -107,7 +103,6 @@ def check_if_game_over():
   check_for_winner()
   check_for_draw()
 
-
 # Check to see if somebody has won
 def check_for_winner():
   global winner
@@ -124,7 +119,6 @@ def check_for_winner():
     winner = diagonal_winner
   else:
     winner = None
-
 
 # Check the rows for a win
 def check_rows():
@@ -147,7 +141,6 @@ def check_rows():
   else:
     return None
 
-
 # Check the columns for a win
 def check_columns():
   global still_playing
@@ -169,7 +162,6 @@ def check_columns():
   else:
     return None
 
-
 # Check the diagonals for a win
 def check_diagonals():
   global still_playing
@@ -188,7 +180,6 @@ def check_diagonals():
   else:
     return None
 
-
 # Check if there is a draw
 def check_for_draw():
   global still_playing
@@ -200,7 +191,6 @@ def check_for_draw():
   else:
     return False
 
-
 # 2 - Player one uses x's. Player two uses o's.
 def flip_player():
   global current_player
@@ -210,7 +200,6 @@ def flip_player():
   # Or if the current player was O, make it X
   elif current_player == "O":
     current_player = "X"
-
 
 # ------------ Start Execution -------------
 # It plays the game.
