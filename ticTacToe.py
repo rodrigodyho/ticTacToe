@@ -21,6 +21,9 @@ board = ["-", "-", "-",
          "-", "-", "-",
          "-", "-", "-"]
 
+# 2 - Player one uses x's. Player two uses o's.
+current_player = "X"
+
 
 # ------------- Functions ---------------
 
@@ -30,6 +33,9 @@ def main():
   # Show the initial game board
   display_board()
 
+  # Handle a turn
+  turn(current_player)
+
 
 # Display the game board to the screen
 def display_board():
@@ -38,6 +44,37 @@ def display_board():
   print(board[3] + " | " + board[4] + " | " + board[5] + "     4 | 5 | 6")
   print(board[6] + " | " + board[7] + " | " + board[8] + "     7 | 8 | 9")
   print("\n")
+
+
+# Handle a turn for an arbitrary player
+def turn(player):
+
+  # Get position from player
+  print(player + "'s turn.")
+  position = input("Choose a position from 1-9: ")
+
+  # Whatever the user inputs, make sure it is a valid input, and the spot is open
+  valid = False
+  while not valid:
+
+    # Make sure the input is valid
+    while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+      position = input("Choose a position from 1-9: ")
+ 
+    # Get correct index in our board list
+    position = int(position) - 1
+
+    # Then also make sure the spot is available on the board
+    if board[position] == "-":
+      valid = True
+    else:
+      print("Go again.")
+
+  # Put the game piece on the board
+  board[position] = player
+
+  # Show the game board
+  display_board()
 
 # ------------ Start Execution -------------
 # It plays the game.
