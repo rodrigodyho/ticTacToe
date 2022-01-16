@@ -32,9 +32,12 @@ def main():
 
   # Show the initial game board
   display_board()
-
+    
   # Handle a turn
   turn(current_player)
+
+  # Flip to the other player
+  flip_player()
 
 
 # Display the game board to the screen
@@ -75,6 +78,16 @@ def turn(player):
 
   # Show the game board
   display_board()
+
+  # 2 - Player one uses x's. Player two uses o's.
+def flip_player():
+  global current_player
+  # If the current player was X, make it O
+  if current_player == "X":
+    current_player = "O"
+  # Or if the current player was O, make it X
+  elif current_player == "O":
+    current_player = "X"
 
 # ------------ Start Execution -------------
 # It plays the game.
